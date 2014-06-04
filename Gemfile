@@ -11,6 +11,8 @@ group :production do
   gem 'pg'
 end
 
+gem 'fog'
+
 gem 'haml-rails'
 gem 'bootstrap-sass', '~> 3.1.1.1'
 gem 'font-awesome-sass'
