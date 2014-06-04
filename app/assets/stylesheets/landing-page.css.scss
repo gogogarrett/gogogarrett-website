@@ -19,9 +19,20 @@ footer #footer_menu ul {
 	}
 }
 
-.navbar-default .navbar-brand {
-	color: #444;
+em {
+	color: rgb(208, 71, 57);
 }
+
+.navbar-default .navbar-brand {
+	color: rgb(208, 71, 57);
+	text-shadow: 3px 2px white;
+}
+
+.navbar-default .navbar-brand:hover {
+	color: white;
+	text-shadow: 3px 2px rgb(208, 71, 57);
+}
+
 
 .top-padding {
 	padding-top: 50px;
