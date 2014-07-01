@@ -1,7 +1,27 @@
 <% content_for :banner_class, 'top-margin' %>
 
-<div class="container top-padding">
-  <%= render '/refinery/content_page' %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 page-header">
+      <h1><%= @page.title %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-9"><%=raw @page.content_for(:body) %></div>
+    <div class="col-lg-3 about-sidebar">
+      <%#=raw @page.content_for(:side_body) %>
+      <%= image_tag(asset_path('garrett.jpg')) %>
+
+      <ul class="list-group">
+        <li class="list-group-item">movie buff</li>
+        <li class="list-group-item">expert bowler</li>
+        <li class="list-group-item">beer drinker</li>
+        <li class="list-group-item">funny guy</li>
+        <li class="list-group-item">awesome</li>
+      </ul>
+
+    </div>
+  </div>
 </div>
 
 <%= render '/refinery/banner' %>

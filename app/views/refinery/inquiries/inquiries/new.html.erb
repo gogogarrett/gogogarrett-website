@@ -1,47 +1,64 @@
-<%#= render "/refinery/content_page" %>
 <% content_for :banner_class, 'top-margin' %>
 
-
 <div class="container top-padding">
-  <h2> <%=raw @page.title %> </h2>
-  <%=raw @page.content_for(:side_body) %>
-
-  <div class='inquiries'>
-    <%= form_for [refinery, :inquiries, @inquiry] do |f| %>
-      <%= render :partial => "/refinery/admin/error_messages",
-                 :locals => {
-                   :object => @inquiry,
-                   :include_object_name => true
-                 } %>
-
-      <div class="form-group">
-        <%= f.required_label :name, :class => 'placeholder-fallback' %>
-        <%= f.text_field :name, :class => 'text form-control', :required => 'required',
-          :placeholder => t('name', :scope => 'activerecord.attributes.refinery/inquiries/inquiry') if Refinery::Inquiries.show_placeholders %>
-      </div>
-
-      <div class="form-group">
-        <%= f.required_label :email, :class => 'placeholder-fallback' %>
-        <%= f.email_field :email, :class => 'text email form-control', :required => 'required',
-          :placeholder => t('email', :scope => 'activerecord.attributes.refinery/inquiries/inquiry') if Refinery::Inquiries.show_placeholders %>
-      </div>
-
-      <div class="form-group message_field">
-        <%= f.required_label :message, :class => 'placeholder-fallback' %>
-        <%= f.text_area :message, :rows => 8, :class => "form-control", :required => 'required',
-          :placeholder => t('message', :scope => 'activerecord.attributes.refinery/inquiries/inquiry') if Refinery::Inquiries.show_placeholders %>
-      </div>
-
-      <div class="form-group message_field">
-        <%= button_tag(type: 'submit', class: "btn btn-default") do %>
-          Send
-        <% end %>
-      </div>
-    <% end %>
+  <div class="row">
+    <div class="col-lg-12 page-header">
+      <h1><%= @page.title %></h1>
+    </div>
   </div>
 
+  <div class="row">
+    <div class="col-lg-9">
+      <div class='inquiries'>
+        <%= form_for [refinery, :inquiries, @inquiry] do |f| %>
+          <%= render :partial => "/refinery/admin/error_messages",
+                     :locals => {
+                       :object => @inquiry,
+                       :include_object_name => true
+                     } %>
 
+          <div class="form-group">
+            <%= f.required_label :name, :class => 'placeholder-fallback' %>
+            <%= f.text_field :name, :class => 'text form-control', :required => 'required',
+              :placeholder => t('name', :scope => 'activerecord.attributes.refinery/inquiries/inquiry') if Refinery::Inquiries.show_placeholders %>
+          </div>
 
+          <div class="form-group">
+            <%= f.required_label :email, :class => 'placeholder-fallback' %>
+            <%= f.email_field :email, :class => 'text email form-control', :required => 'required',
+              :placeholder => t('email', :scope => 'activerecord.attributes.refinery/inquiries/inquiry') if Refinery::Inquiries.show_placeholders %>
+          </div>
+
+          <div class="form-group message_field">
+            <%= f.required_label :message, :class => 'placeholder-fallback' %>
+            <%= f.text_area :message, :rows => 8, :class => "form-control", :required => 'required',
+              :placeholder => t('message', :scope => 'activerecord.attributes.refinery/inquiries/inquiry') if Refinery::Inquiries.show_placeholders %>
+          </div>
+
+          <div class="form-group message_field">
+            <%= button_tag(type: 'submit', class: "btn btn-default") do %>
+              Send
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-lg-3 about-sidebar">
+      <%= image_tag(asset_path('garrett.jpg')) %>
+
+      <ul class="list-group">
+        <li class="list-group-item">0497.826.737</li>
+        <li class="list-group-item">
+          <a href="https://github.com/gogogarrett" target="_blank">
+            github.com/gogogarrett
+          </a>
+        </li>
+        <li class="list-group-item">Sydney, Australia</li>
+        <li class="list-group-item">heinleng@gmail.com</li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <%= render '/refinery/banner' %>
